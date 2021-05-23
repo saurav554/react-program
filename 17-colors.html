@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script src="./js/react.development.js"></script>
+        <script src="./js/react-dom.development.js"></script>
+        <script src="./js/babel.js"></script>
+        <script type ="text/babel">
+            const rootHandle=document.getElementById('root')
+
+            const colors =['red', 'green', 'white', 'yellow', ]
+
+
+            function ColorList (props){
+                console.log(props)
+                return (
+                    <div>
+                        <ul>
+                        {
+                            colors.map(function(ele,i){
+                            return <li key={i}> {ele}</li>
+                            })
+                        }
+                        </ul>
+                    </div>
+                )
+            }   
+            ReactDOM.render (<ColorList/>,rootHandle)
+        </script>
+
+    </body>
+</html>

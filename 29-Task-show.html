@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title></title>
+ </head>
+<body>
+    <div id="root">
+
+    </div>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.js"></script>
+    <script type ="text/babel">
+        const rootHandle=document.getElementById('root')
+
+        class TasksList extends React.Component {
+            constructor (){
+                super()
+                this.state={
+                    tasks: [
+                          {id:1, title:'db back', completed: false},
+                          {id:2, title:'server steup', completed: true},
+                          
+
+                            ]
+                            }  
+                          }
+
+                  handleClick =(task) => {
+                      alert (`id-${task.id}, title-${task.title}, completed-${task.completed}`)
+                      }    
+
+                  render (){
+                  return (
+
+      <div>
+          <h2>Listing Tasks-{this .state.tasks.length}</h2>
+            <table border="1">
+              <thead>
+                <tr>
+                    <th> sl no </th>
+                    <th>title</th>
+                    <th> actions</th> </tr>
+             </thead>
+              <tbody>
+                  {
+                this.state.tasks.map((task,i)=>{
+                
+                      return (
+                      <tr key={task.id}>
+                        <td>{i+1}</td>
+                          <td>{task.title}</td>
+                            <td>
+                            <button onClick={()=>{ this.handleClick (task)  }}>show</button>
+                                 
+                              </td>
+                                    </tr>
+                                      )
+                                      }) 
+                                    }
+                                  </tbody>
+                                  </table>
+                                  </div>
+                               )
+                            }   
+                         } 
+  ReactDOM.render (<TasksList/>, rootHandle)
+    </script>
+      </body>
+        </html>

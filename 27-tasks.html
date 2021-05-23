@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script src="./js/react.development.js"></script>
+        <script src="./js/react-dom.development.js"></script>
+        <script src="./js/babel.js"></script>
+        <script type ="text/babel">
+            const rootHandle=document.getElementById('root')
+            class TasksList extends React.Component {
+                constructor (){
+                    super()
+                    this.state={
+                       tasks: [
+                              {id:1, title:'develop ui', completed: true},
+                              {id:2, title:'develop app', completed: false},
+                               {id:3, title:'take client features', completed: true},
+
+
+                               ]
+                                }  
+                             }
+
+                              render (){
+                              return (
+
+                         <div>
+                            <h2>Listing Tasks-{this .state.tasks.length}</h2>
+                           <table border="1">
+                             <thead>
+                              <tr>
+                                <th> # </th>
+                                 <th>title</th>
+                                 <th> status</th>
+
+                                 </tr>
+                                    </thead>
+                                     <tbody>
+                                        {
+                                       this.state.tasks.map(function(ele){
+                            
+                                           return (
+                                              <tr key={ele.id}>
+                                              <td>{ele.id}</td>
+                                              <td>{ele.title}</td>
+                                            <input type="checkbox" defaultChecked={ele.completed}/>
+                                              <td>{ele.completed ? 'completed': 'on-going' } </td>
+                                              </tr>
+                                            )
+                                           })
+                                           }
+
+                                                 </tbody>
+                                                     </table>
+                                                            </div>
+                                                                )
+                                                              }
+                                                           }
+            
+                ReactDOM.render (<TasksList/>, rootHandle)
+                </script>
+                    
+                </body>
+                </html>
